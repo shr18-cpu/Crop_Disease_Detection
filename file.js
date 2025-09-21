@@ -6,11 +6,9 @@ function analyzeCrop() {
     alert("Please upload an image and select crop type.");
     return;
   }
-
-  /
   const statusOptions = ["Healthy", "Diseased", "Stressed"];
   const status = statusOptions[Math.floor(Math.random() * statusOptions.length)];
-  const confidence = Math.floor(70 + Math.random() * 30); // random 70–100%
+  const confidence = Math.floor(70 + Math.random() * 30);
 
   const history = JSON.parse(localStorage.getItem("cropHistory")) || [];
   history.unshift({
