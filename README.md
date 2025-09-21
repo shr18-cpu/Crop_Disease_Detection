@@ -1,5 +1,4 @@
 # Crop_Disease_Detection
-Crop disease detection uses technology, like imaging and artificial intelligence (AI), to identify plant illnesses quickly and accurately by analyzing visual data and patterns, helping farmers protect crops and improve agricultural productivity
 Our prototype is an AI-powered crop monitoring and advisory system designed for farmers. Using a simple website, farmers can upload a photo of their crop leaf. Our system will detect whether the plant is healthy or affected by common diseases. Based on the result, it provides localized, low-cost advisory recommendations (e.g., remedies, prevention tips) and integrates weather data to guide timely actions.
 The prototype demonstrates how affordable AI technology can deliver early detection, actionable insights, and multilingual support, helping farmers reduce crop losses and improve yield without relying on expensive tools like drones or IoT devices.
 Technologies & Tools Used
