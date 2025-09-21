@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropCare AI</title>
+  <link rel="stylesheet" href="file.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>CropCare AI</h2>
+    <p class="subtitle">Smart Crop Monitoring</p>
+    <nav>
+      <a onclick="showPage('analysisPage')" id="nav-analysis" class="active">Analyze Crop</a>
+      <a onclick="showPage('historyPage')" id="nav-history">Analysis History</a>
+    </nav>
+    <div class="quick-stats">
+      <p><strong>Quick Stats</strong></p>
+      <p>Analyses Today -</p>
+      <p>Healthy Crops -</p>
+    </div>
+    <div class="footer">👨‍🌾 Farmer Dashboard</div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <!-- Analysis Page -->
+    <div id="analysisPage" class="page active">
+      <h1>🌱 AI Crop Analysis</h1>
+      <p>Upload a photo of your crop leaf to detect diseases and get expert recommendations</p>
+
+      <div class="card">
+        <h3>📷 Upload Crop Image</h3>
+        <div class="upload-box">
+          <p>Upload Image</p>
+          <input type="file" id="fileInput">
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🌾 Select Crop Type</h3>
+        <select id="cropType">
+          <option value="">Choose your crop type...</option>
+          <option value="Maize">Maize</option>
+          <option value="Wheat">Wheat</option>
+          <option value="Sugarcane">Sugarcane</option>
+        </select>
+      </div>
+
+      <button class="analyze-btn" onclick="analyzeCrop()">🔍 Analyze Crop Health</button>
+    </div>
+
+    <!-- History Page -->
+    <div id="historyPage" class="page">
+      <h1>📊 Analysis History</h1>
+      <p>Review your past crop health analyses</p>
+
+      <div class="filters">
+        <input type="text" id="searchBox" placeholder="Search by crop or disease..." onkeyup="filterHistory()">
+        <select id="statusFilter" onchange="filterHistory()">
+          <option value="">All Statuses</option>
+          <option value="Healthy">Healthy</option>
+          <option value="Diseased">Diseased</option>
+          <option value="Stressed">Stressed</option>
+        </select>
+        <select id="cropFilter" onchange="filterHistory()">
+          <option value="">All Crops</option>
+          <option value="Maize">Maize</option>
+          <option value="Wheat">Wheat</option>
+          <option value="Sugarcane">Sugarcane</option>
+        </select>
+      </div>
+
+      <div class="cards-grid" id="historyCards">
+        <!-- Cards will be added dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script src="file.js"></script>
+</body>
+</html>
