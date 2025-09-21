@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  background: #f8fdf9;
+  color: #333;
+}
+.sidebar {
+  width: 220px;
+  background: #eafaf0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sidebar h2 { margin: 0; color: #2e7d32; }
+.sidebar .subtitle { font-size: 0.9em; color: #666; }
+.sidebar nav { margin-top: 20px; }
+.sidebar nav a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #2e7d32;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.sidebar nav a.active, .sidebar nav a:hover { background: #c8e6c9; }
+.sidebar .quick-stats { margin-top: 20px; font-size: 0.9em; }
+.sidebar .footer { margin-top: auto; font-size: 0.9em; color: #444; }
+.main { flex: 1; padding: 30px; }
+h1 { margin-top: 0; color: #2e7d32; }
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.upload-box {
+  border: 2px dashed #a5d6a7;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+button, select, input[type="file"] {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+button { background: #2e7d32; color: white; }
+button:hover { background: #1b5e20; }
+.analyze-btn {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+/* History Page */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.crop-card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.crop-card img { width: 100%; border-radius: 8px; }
+.crop-card.healthy { border-left: 6px solid #43a047; }
+.crop-card.diseased { border-left: 6px solid #e53935; }
+.crop-card.stressed { border-left: 6px solid #fb8c00; }
+.crop-card h3 { margin: 10px 0 5px; }
+.page { display: none; }
+.page.active { display: block; }
