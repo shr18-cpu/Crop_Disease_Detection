@@ -1,4 +1,4 @@
-async function analyzeCrop() {
+function analyzeCrop() {
   const crop = document.getElementById("cropType").value;
   const file = document.getElementById("fileInput").files[0];
 
@@ -7,37 +7,23 @@ async function analyzeCrop() {
     return;
   }
 
-  const formData = new FormData();
-  formData.append("file", file);
+  /
+  const statusOptions = ["Healthy", "Diseased", "Stressed"];
+  const status = statusOptions[Math.floor(Math.random() * statusOptions.length)];
+  const confidence = Math.floor(70 + Math.random() * 30); // random 70–100%
 
-  try {
-    // 🔹 Replace with your deployed backend URL
-    const response = await fetch("https://your-backend.onrender.com/predict", {
-      method: "POST",
-      body: formData
-    });
+  const history = JSON.parse(localStorage.getItem("cropHistory")) || [];
+  history.unshift({
+    crop,
+    status,
+    confidence,
+    date: new Date().toDateString(),
+    recommendations: Math.floor(1 + Math.random() * 4)
+  });
+  localStorage.setItem("cropHistory", JSON.stringify(history));
 
-    if (!response.ok) {
-      throw new Error("Prediction request failed");
-    }
-
-    const result = await response.json();
-
-    const history = JSON.parse(localStorage.getItem("cropHistory")) || [];
-    history.unshift({
-      crop,
-      status: result.prediction,        // from backend
-      confidence: result.confidence,    // from backend
-      date: new Date().toDateString(),
-      recommendations: Math.floor(1 + Math.random() * 4)
-    });
-    localStorage.setItem("cropHistory", JSON.stringify(history));
-
-    showPage("historyPage");
-    renderHistory();
-  } catch (err) {
-    alert("Error: " + err.message);
-  }
+  showPage("historyPage");
+  renderHistory();
 }
 
 function showPage(pageId) {
